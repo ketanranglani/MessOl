@@ -1,5 +1,5 @@
 const productRouter= require('express').Router()
-const axios=require('axios')
+
 require('dotenv').config
 const apiKey=process.env.API_Key
 const Token= process.env.Token
@@ -13,7 +13,7 @@ productRouter.get('/',async(req,res)=>{
         }
     }
     try{
-        res= await fetch(`https://storeName.myshopify.com/admin/api/2023-07/shop.json`,config)
+        res= await fetch(`https://${storeName}.myshopify.com/admin/api/2023-07/shop.json`,config)
         const shopDetails = await res.json();
         res.json(shopDetails.shop);
     }catch(error){
